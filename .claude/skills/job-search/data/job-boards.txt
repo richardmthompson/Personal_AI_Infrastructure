@@ -1,0 +1,25 @@
+# Job Boards Database
+# Simple starting list - will expand as we discover what works
+
+## Currently Using
+Stepstone | https://www.stepstone.com/
+Indeed | https://www.indeed.com/
+Upwork | https://www.upwork.com/ | Freelance/contract - longer-term chatbot/voicebot projects
+
+## Context Notes (To inform search strategy)
+- Location: Thailand (remote work required)
+- Open to: International companies, remote-first orgs
+- Markets to consider:
+  - International (primary)
+  - Thai companies (minimal AI/ML market - low priority)
+- High-value targets: Major AI companies (Anthropic, OpenAI, etc.)
+- Contract work: Open to longer-term freelance (chatbot/voicebot design)
+
+## To Be Determined Through Iteration
+- Which markets work best for remote applicants from Thailand
+- Best job boards for each market/domain
+- Search strategies that surface quality opportunities
+- How to filter for remote-friendly companies
+
+## Will Add As We Discover
+(Space for new boards as we test and validate what works)
