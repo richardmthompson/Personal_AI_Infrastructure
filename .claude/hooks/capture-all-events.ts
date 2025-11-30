@@ -67,18 +67,19 @@ function getSessionMappingFile(): string {
 }
 
 function getAgentForSession(sessionId: string): string {
+  // Use DA environment variable for primary agent name, fallback to 'Assistant'
+  const primaryAgent = process.env.DA || 'Assistant';
+
   try {
     const mappingFile = getSessionMappingFile();
     if (existsSync(mappingFile)) {
       const mappings = JSON.parse(readFileSync(mappingFile, 'utf-8'));
-      // Default agent name - change 'kai' to your primary agent's name
-      return mappings[sessionId] || 'kai';
+      return mappings[sessionId] || primaryAgent;
     }
   } catch (error) {
     // Ignore errors, default to primary agent
   }
-  // Change 'kai' to your primary agent's name
-  return 'kai';
+  return primaryAgent;
 }
 
 function setAgentForSession(sessionId: string, agentName: string): void {
@@ -125,9 +126,10 @@ async function main() {
     }
     // If this is a SubagentStop or Stop event, reset to primary agent
     else if (eventType === 'SubagentStop' || eventType === 'Stop') {
-      // Change 'kai' to your primary agent's name
-      agentName = 'kai';
-      setAgentForSession(sessionId, 'kai');
+      // Use DA environment variable for primary agent name, fallback to 'Assistant'
+      const primaryAgent = process.env.DA || 'Assistant';
+      agentName = primaryAgent;
+      setAgentForSession(sessionId, primaryAgent);
     }
     // Check if CLAUDE_CODE_AGENT env variable is set (for subagents)
     else if (process.env.CLAUDE_CODE_AGENT) {

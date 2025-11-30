@@ -7,7 +7,7 @@
  *
  * Environment Variables:
  * - ELEVENLABS_VOICE_ID: Default voice ID for notifications (REQUIRED)
- * - PAI_VOICE_SERVER_PORT: Port for voice server (default: 8888)
+ * - PAI_VOICE_SERVER_PORT: Port for voice server (default: 9999)
  */
 
 import { homedir } from 'os';
@@ -61,7 +61,7 @@ function getVoiceServerPort(): number {
   const port = process.env.PAI_VOICE_SERVER_PORT ||
                envVars.PORT ||
                process.env.PORT ||
-               '8888';
+               '9999';
   return parseInt(port);
 }
 

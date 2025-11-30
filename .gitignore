@@ -67,3 +67,5 @@ credentials/
 
 # Assume all contents of codex are private and not for public consumption.
 .claude/codex/
+.claude/agent-sessions.json
+

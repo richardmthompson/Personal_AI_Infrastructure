@@ -1,0 +1,134 @@
+{
+  "research_metadata": {
+    "date": "2025-11-22",
+    "timestamp": "2025-11-22-154740",
+    "research_mode": "standard",
+    "total_agents": 9,
+    "agent_breakdown": {
+      "perplexity": 3,
+      "claude": 3,
+      "gemini": 3
+    },
+    "research_duration_minutes": 3,
+    "timeout_minutes": 3,
+    "subject": "Remote AI/software development jobs from Thailand for British nationals",
+    "confidence_level": "high",
+    "confidence_percentage": 78,
+    "total_queries": 18,
+    "services_used": [
+      "Perplexity API",
+      "Claude WebSearch",
+      "Gemini Research"
+    ],
+    "total_output_words": 25000,
+    "sources_consulted": 50
+  },
+  "research_questions": [
+    "Remote work laws and regulations for British nationals in Thailand",
+    "Companies and countries hiring remote developers from Thailand",
+    "AI/ML job market trends and salary ranges 2025",
+    "UK-Thailand tax implications and legal frameworks",
+    "Portfolio requirements for remote AI/ML positions",
+    "Thailand visa and employment law for remote workers",
+    "Success case studies of remote developers",
+    "Freelancing vs traditional employment comparison",
+    "Comprehensive strategy for landing remote AI roles from Thailand"
+  ],
+  "key_findings": {
+    "viable_markets": [
+      "USA",
+      "UK",
+      "EU (Germany, France, Netherlands)",
+      "Singapore/Hong Kong",
+      "Australia"
+    ],
+    "recommended_visa": "DTV (Destination Thailand Visa)",
+    "optimal_tax_structure": "UK Limited Company",
+    "entry_strategy": "Start Upwork → Build portfolio → Transition to high-tier freelancing or employment",
+    "timeline_months": "4-8",
+    "portfolio_projects_needed": "3-5",
+    "salary_range_usd": "143000-269000"
+  },
+  "agents": [
+    {
+      "id": 1,
+      "type": "perplexity-researcher",
+      "query": "Remote work laws Thailand-UK",
+      "output_file": "01-perplexity-remote-work-laws.md",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "type": "perplexity-researcher",
+      "query": "Companies hiring remote Thailand",
+      "output_file": "02-perplexity-companies-hiring-thailand.md",
+      "status": "completed"
+    },
+    {
+      "id": 3,
+      "type": "perplexity-researcher",
+      "query": "AI remote job market 2025",
+      "output_file": "03-perplexity-ai-job-market-2025.md",
+      "status": "completed"
+    },
+    {
+      "id": 4,
+      "type": "claude-researcher",
+      "query": "UK citizen Thailand tax legal",
+      "output_file": "04-claude-uk-thailand-tax-legal.md",
+      "status": "completed"
+    },
+    {
+      "id": 5,
+      "type": "claude-researcher",
+      "query": "Portfolio requirements AI roles",
+      "output_file": "05-claude-portfolio-requirements.md",
+      "status": "completed"
+    },
+    {
+      "id": 6,
+      "type": "claude-researcher",
+      "query": "Thailand visa employment law",
+      "output_file": "06-claude-thailand-visa-employment.md",
+      "status": "completed"
+    },
+    {
+      "id": 7,
+      "type": "gemini-researcher",
+      "query": "Developer success case studies",
+      "output_file": "07-gemini-success-case-studies.md",
+      "status": "completed"
+    },
+    {
+      "id": 8,
+      "type": "gemini-researcher",
+      "query": "Freelance vs employment analysis",
+      "output_file": "08-gemini-freelance-vs-employment.md",
+      "status": "completed"
+    },
+    {
+      "id": 9,
+      "type": "gemini-researcher",
+      "query": "Remote AI job strategy Thailand",
+      "output_file": "09-gemini-remote-ai-job-strategy.md",
+      "status": "completed"
+    }
+  ],
+  "deliverables": [
+    "README.md - Research overview and quick reference",
+    "COMPREHENSIVE-RESEARCH-REPORT.md - Full synthesis with actionable strategies",
+    "raw-outputs/ - 9 individual agent research outputs",
+    "metadata.json - This file with research tracking data"
+  ],
+  "next_steps": [
+    "Create Upwork profile TODAY",
+    "Set up GitHub, LinkedIn, personal website",
+    "Apply for Thailand DTV visa",
+    "Consult expat tax advisor on UK Limited Company",
+    "Build first high-impact portfolio project (RAG/LLM system)"
+  ],
+  "archive_location": {
+    "current": "/Users/richardthompson/CODE/PAI/scratchpad/2025-11-22-154740_remote-ai-jobs-thailand-research/",
+    "permanent": "/Users/richardthompson/CODE/PAI/.claude/codex/library/research/2025-11-22_remote-ai-jobs-thailand/"
+  }
+}

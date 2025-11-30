@@ -21,6 +21,7 @@ CACHE_AGE=30   # 30 seconds for more real-time updates
 
 # Count items from specified directories
 claude_dir="${PAI_DIR:-$HOME/.claude}"
+project_root="$(dirname "$claude_dir")"
 commands_count=0
 mcps_count=0
 fobs_count=0
@@ -31,10 +32,10 @@ if [ -d "$claude_dir/commands" ]; then
     commands_count=$(ls -1 "$claude_dir/commands/"*.md 2>/dev/null | wc -l | tr -d ' ')
 fi
 
-# Count MCPs from .mcp.json (single parse)
+# Count MCPs from .mcp.json (single parse) - look in project root
 mcp_names_raw=""
-if [ -f "$claude_dir/.mcp.json" ]; then
-    mcp_data=$(jq -r '.mcpServers | keys | join(" "), length' "$claude_dir/.mcp.json" 2>/dev/null)
+if [ -f "$project_root/.mcp.json" ]; then
+    mcp_data=$(jq -r '.mcpServers | keys | join(" "), length' "$project_root/.mcp.json" 2>/dev/null)
     mcp_names_raw=$(echo "$mcp_data" | head -1)
     mcps_count=$(echo "$mcp_data" | tail -1)
 else
@@ -49,7 +50,7 @@ fi
 
 # Count Fabric patterns (optimized - count subdirectories)
 # Use bundled PAI fabric if available, fallback to system-wide installation
-fabric_patterns_dir="$claude_dir/skills/fabric/fabric-repo/patterns"
+fabric_patterns_dir="$claude_dir/skills/fabric/fabric-repo/data/patterns"
 if [ ! -d "$fabric_patterns_dir" ]; then
     fabric_patterns_dir="${HOME}/.config/fabric/patterns"
 fi
@@ -196,9 +197,14 @@ for mcp in $mcp_names_raw; do
         "apify") formatted="${MCP_DEFAULT}Apify${RESET}" ;;
         "content") formatted="${MCP_DEFAULT}Content${RESET}" ;;
         "Ref") formatted="${MCP_DEFAULT}Ref${RESET}" ;;
-        "pai") formatted="${MCP_DEFAULT}Foundry${RESET}" ;;
+        "Foundry") formatted="${MCP_DEFAULT}Foundry${RESET}" ;;
         "playwright") formatted="${MCP_DEFAULT}Playwright${RESET}" ;;
-        *) formatted="${MCP_DEFAULT}${mcp^}${RESET}" ;;
+        *)
+            # Capitalize first letter (bash 3 compatible)
+            first_char=$(echo "$mcp" | cut -c1 | tr '[:lower:]' '[:upper:]')
+            rest_chars=$(echo "$mcp" | cut -c2-)
+            formatted="${MCP_DEFAULT}${first_char}${rest_chars}${RESET}"
+            ;;
     esac
 
     if [ -z "$mcp_names_formatted" ]; then
