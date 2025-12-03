@@ -49,14 +49,18 @@ description: |
 
 ---
 
+## Filesystem Navigation: IMPORTANT
+**ALWAYS CHECK ENVIRONMENT VARIABLES DIRECTLY BEFORE NAVIGATING FILESYSTEM**
+* Especially $VOX_ROOT 
+
 ## Extended Instructions
 
 ### Scratchpad for Test/Random Tasks (Detailed)
 
-When working on test tasks, experiments, or random one-off requests, ALWAYS work in `$PAI_DIR/../scratchpad/` with proper timestamp organization:
+When working on test tasks, experiments, or random one-off requests, ALWAYS work in `$VOX_ROOT/scratchpad/` with proper timestamp organization:
 
 - Create subdirectories using naming: `YYYY-MM-DD-HHMMSS_description/`
-- Example: `$PAI_DIR/../scratchpad/2025-10-13-143022_prime-numbers-test/`
+- Example: `$VOX_ROOT/scratchpad/2025-10-13-143022_prime-numbers-test/`
 - This applies to both main AI and all sub-agents
 - Clean up scratchpad periodically or when tests complete
 - **IMPORTANT**: Scratchpad is for working files only - valuable outputs (learnings, decisions, research findings) still get captured in the system output (`history/`) via hooks
@@ -73,35 +77,38 @@ Configured in `settings.json`
 
 ### VOX Directory Structure
 
-Parent project directory is $PAI_DIR/ 
+VOX workspace root is $VOX_ROOT
 
-The VOX system is organized within `.claude/` with the following key directories:
+The VOX system separates workspace (user content) from tooling (configuration):
 
-#### Core Directories
+#### Workspace Directories (at $VOX_ROOT)
 
-- **`.claude/codex/`** - Primary content repository (detailed below)
-- **`.claude/skills/`** - Skill definitions and workflows
-- **`.claude/hooks/`** - Event-driven automation scripts
-- **`.claude/history/`** - Session logs and historical outputs
-- **`.claude/scratchpad/`** - Temporary workspace for tests/experiments
-- **`.claude/agents/`** - Agent configurations and templates
+- **`$VOX_ROOT/working/`** - Active session memory and current tasks
+- **`$VOX_ROOT/projects/`** - Project-specific content and outputs
+- **`$VOX_ROOT/library/`** - Reference materials and research
+- **`$VOX_ROOT/scratchpad/`** - Temporary workspace for tests/experiments
+
+#### VOX-Specific Tool Directories
+
 - **`.claude/documentation/`** - System documentation
 - **`.claude/scripts/`** - Utility scripts
 - **`.claude/voice-server/`** - Voice interaction service (Vox)
 
-### The Codex: `.claude/codex/`
+### The VOX Workspace
 
-The Codex is the central knowledge repository for all persistent content. Think of it as VOX's long-term memory and organized workspace.
+VOX's workspace is the central repository for all persistent content. Think of it as VOX's long-term memory and organized workspace.
 
 **Structure:**
 ```
-.claude/codex/
-├── CLAUDE.md           # Codex overview and usage guide
+$VOX_ROOT/
 ├── working/            # Active session memory and current tasks
-│   └── YYYY-MM-DD-*.md # Timestamped working documents
+│   ├── CLAUDE.md       # Process documentation
+│   ├── CURRENT.md      # Active goals (max 3)
+│   ├── BACKLOG.md      # Ideas and research queue
+│   └── completed/      # Archived work
 ├── projects/           # Project-specific content and outputs
 │   └── [project-name]/
-│       ├── CLAUDE.md   # Project overview
+│       ├── CLAUDE.md   # Process docs for this project
 │       ├── BUILD.md    # Build/implementation notes
 │       ├── build/      # Build artifacts and tasks
 │       └── materials/  # Project resources
